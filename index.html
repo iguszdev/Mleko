@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MlekoRusher — Ucieczka Krowy na iOS 12</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        :root {
+            --bg: #0f1419;
+            --card: #19222b;
+            --text: #f3f6f9;
+            --muted: #9fb0c0;
+            --accent: #4ade80;
+            --accent-dark: #22c55e;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: radial-gradient(circle at top, #1b2a38 0%, var(--bg) 60%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .brand-logo {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .brand-badge {
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--text);
+        }
+
+        .hero {
+            padding: 56px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 620px;
+            margin: 0 auto 28px;
+            font-size: 1.05rem;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #08130c;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-1px);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin: 40px 0 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+            margin: 24px 0 36px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px;
+        }
+
+        .card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+            margin-bottom: 36px;
+        }
+
+        .shot {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .shot img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.2s ease;
+        }
+
+        .shot:hover img {
+            transform: scale(1.03);
+        }
+
+        .shot-caption {
+            padding: 12px 16px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .info-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 12px;
+        }
+
+        .info-box h2 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .info-box ul {
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .info-box li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            margin-top: 48px;
+            padding: 24px 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <img class="brand-logo" src="logo.png" alt="Logo MlekoRusher">
+                <span>MlekoRusher</span>
+                <span class="brand-badge">iOS 12</span>
+            </div>
+            <nav>
+                <a href="#funkcje">Funkcje</a>
+                <a href="#screeny">Screeny</a>
+                <a href="#ios12">Wymagania</a>
+                <a href="#pobierz">Pobierz</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1>Gra o uciekaniu krową na iOS 12</h1>
+                <p>
+                    Szybki bieg po pastwisku, unikanie przeszkód, zbieranie mleka i walka o rekord punktów.
+                    Lekka, dynamiczna gra robiona z myślą o starszych iPhone'ach i iPadach na iOS 12.
+                </p>
+                <div class="btn-group" id="pobierz">
+                    <a class="btn btn-primary" href="https://drive.proton.me/urls/KB4MSF4V40#DnnIgs1Og3W4" target="_blank" rel="noopener noreferrer">Pobierz IPA (Proton Drive)</a>
+                    <a class="btn btn-secondary" href="#screeny">Zobacz screeny</a>
+                </div>
+            </section>
+
+            <section class="grid" id="funkcje">
+                <div class="card">
+                    <h2>🏃‍♂️ Szybka ucieczka</h2>
+                    <p>Proste sterowanie dotykiem, rosnące tempo i przeszkody, które nie wybaczają zawahania.</p>
+                </div>
+                <div class="card">
+                    <h2>🥛 Mleko i punkty</h2>
+                    <p>Zgarniaj bonusy po drodze, wykręcaj kolejne rekordy i sprawdzaj, jak daleko uda Ci się przebiec.</p>
+                </div>
+                <div class="card">
+                    <h2>📱 Optymalizacja pod iOS 12</h2>
+                    <p>Skupienie na płynnym działaniu i lekkim kodzie bez zbędnych fajerwerków obciążających sprzęt.</p>
+                </div>
+            </section>
+
+            <section id="screeny">
+                <h2 class="section-title">Screeny z gry</h2>
+                <div class="gallery">
+                    <div class="shot">
+                        <img src="img1.png" alt="Screen 1 z gry MlekoRusher">
+                        <div class="shot-caption">Screen 1 — podmień opis na swój</div>
+                    </div>
+                    <div class="shot">
+                        <img src="img2.png" alt="Screen 2 z gry MlekoRusher">
+                        <div class="shot-caption">Screen 2 — podmień opis na swój</div>
+                    </div>
+                    <div class="shot">
+                        <img src="img3.png" alt="Screen 3 z gry MlekoRusher">
+                        <div class="shot-caption">Screen 3 — podmień opis na swój</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-box" id="ios12">
+                <h2>Informacje techniczne (do uzupełnienia)</h2>
+                <ul>
+                    <li><strong>System:</strong> iOS 12.0 i nowsze</li>
+                    <li><strong>Wersja:</strong> v0.1-alpha (zmień na aktualną)</li>
+                    <li><strong>Sterowanie:</strong> tapnięcia / gesty na ekranie</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <span>© 2026 MlekoRusher</span>
+            <span>Wersja robocza strony — podmień teksty i linki po swojemu</span>
+        </footer>
+    </div>
+</body>
+</html>
