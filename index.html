@@ -16,7 +16,7 @@
             --border: rgba(255, 255, 255, 0.08);
         }
 
-        * {
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -142,6 +142,12 @@
 
         .btn-secondary:hover {
             transform: translateY(-1px);
+        }
+
+        .download-note {
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 0.9rem;
         }
 
         .section-title {
@@ -281,9 +287,13 @@
                     zbieraj butelki mleka i nie daj się złapać!
                 </p>
                 <div class="btn-group" id="pobierz">
-                    <a class="btn btn-primary" href="https://drive.proton.me/urls/KB4MSF4V40#DnnIgs1Og3W4" target="_blank" rel="noopener noreferrer">Pobierz grę (Proton Drive)</a>
+                    <a class="btn btn-primary" href="Mleko.ipa" download>Pobierz Mleko.ipa (GitHub)</a>
+                    <a class="btn btn-secondary" href="https://drive.proton.me/urls/KB4MSF4V40#DnnIgs1Og3W4" target="_blank" rel="noopener noreferrer">Proton Drive</a>
                     <a class="btn btn-secondary" href="#screeny">Zobacz screeny</a>
                 </div>
+                <p class="download-note">
+                    W tym samym repo na GitHubie znajduje się plik <strong>Mleko.ipa</strong> — po kliknięciu możesz pobrać go jako plik na laptopa albo zainstalować przez <strong>AppSync</strong>.
+                </p>
             </section>
 
             <section id="jak-sie-gra">
@@ -344,7 +354,7 @@
                         <div class="shot-frame">
                             <img src="img2.PNG" alt="Screen 2 z gry MlekoRusher">
                         </div>
-                        <div class="shot-caption">Screen 2/div>
+                        <div class="shot-caption">Screen 2</div>
                     </div>
                     <div class="shot">
                         <div class="shot-frame">
@@ -361,6 +371,7 @@
                     <ul>
                         <li><strong>Platforma:</strong> iOS 12.5.8 i nowsze, tryb pionowy</li>
                         <li><strong>Grafika:</strong> 3D na SceneKit, wszystkie tekstury generowane w kodzie</li>
+                        <li><strong>Plik instalacyjny:</strong> <code>Mleko.ipa</code> w repozytorium GitHub (pobranie na laptopa lub instalacja przez AppSync)</li>
                         <li><strong>Dodatki:</strong> brak reklam, brak internetu, tylko ty, krowa i farmer</li>
                     </ul>
                 </div>
